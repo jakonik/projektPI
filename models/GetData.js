@@ -35,7 +35,7 @@ module.exports.create = async (application) => {
   const userModel = new User();
   let ifUserExist = -1;
   console.log('tu jestem')
-  await userModel.where({ name: application.usName, surname: application.surname, mail: application.usMail })
+  await userModel.where({ name: application.usName, surname: application.usSurname, mail: application.usMail })
     .fetch().then(function (model) {
       ifUserExist = 1;
       console.log('user istnieje');
@@ -44,6 +44,8 @@ module.exports.create = async (application) => {
       console.log('jestem w catchu sprawdzania usera')
     });
   console.log("widać mnie")
+
+
   return new Promise(async (resolve, reject) => {
     if (ifUserExist == 0) {
       reject('ktos majstrowal przy twojej ankiecie');
@@ -53,17 +55,24 @@ module.exports.create = async (application) => {
 
 
 
-    let appData = await appModel.where({ haslo: passHash }).fetch();
+    let appData = await appModel.where({ haslo: passHash }).fetch().catch((err) => { reject("ktoś coś nabroił") });
     appData = appData.toJSON();
     console.log('ponizej mamy jsona');
     console.log(appData);
     toSecretHash = toHash + appData.mark + appData.message + appData.name + passHash;
     const secretHash = (sha512(toSecretHash, application.appHaslo));
-    if (secretHash == application.secretHash) resolve('wszystko ok');
-    else reject('ktoś kombinował w bazie danych');
+    if (application.secretHash == secretHash) { resolve('wszystko ok'); }
+    else { reject('ktoś kombinował w bazie danych'); }
   }).catch((err) => {
+    return err;
+    // toSecretHash = toHash + appData.mark + appData.message + appData.name + passHash;
+    // const secretHash = (sha512(toSecretHash, application.appHaslo));
+    // if (application.toSecretHash == application.secretHash) { return 'wszystko ok'; }
+    // else { return 'ktoś kombinował w bazie danych'; }
+
     console.log('cośinnegoxd');
-    return 'ktoś kombinował w bazie danych';
+    //    return 'ktoś kombinował w bazie danych';
+
 
   })
 
