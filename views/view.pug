@@ -9,11 +9,11 @@ html
                 nav.app-nav
                     ul.app-nav__list
                         li.app-nav__list-item
-                            a.app-nav__link.app-nav__link--is-active(href="#") home
+                            a.app-nav__link.app-nav__link--is-active(href="/") home
                         li.app-nav__list-item
-                            a.app-nav__link(href="/view") ankiety
+                            a.app-nav__link(href="/view") czy zmodyfikowano
                         li.app-nav__list-item
-                            a.app-nav__link(href="#")  kontakt
+                            a.app-nav__link(href="/ifPass")  czy wypełniono
             .wrapper
                 section.slogan
                     h1.slogan__header
@@ -26,7 +26,7 @@ html
                 
             .lightbox(v-show="formLightbox == true" style="display: none;")
                 .lightbox__content
-                    h2.lightbox__header Wypełnij ankietę
+                    h2.lightbox__header Sprawdź ankietę
                     form.lightbox__form(action="/applications2" method="POST")
                         .lightbox__form-control
                             label.lightbox__label twoje haslo

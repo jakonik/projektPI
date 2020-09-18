@@ -11,6 +11,12 @@ exports.view = (req, res) => {
         formMessage: req.flash('form')
     });
 };
+exports.ifPass = (req, res) => {
+
+    res.render('ifPass', {
+        formMessage: req.flash('form')
+    });
+};
 
     /*    res.json({
             'name':req.body.name,
