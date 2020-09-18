@@ -88,5 +88,3 @@ exports.getData = (req, res) => {
 
 
 };
-
-
