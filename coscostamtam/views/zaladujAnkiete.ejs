@@ -1,0 +1,280 @@
+<!DOCTYPE html>	
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>System do głosowania </title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  
+	
+
+  <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="/js/js.js"></script>
+ 
+  <script src="/js/readAnswers.js"></script>
+  <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">  
+  <link href="/css/style.css" rel="stylesheet" type="text/css" >
+  <link href="/css/style2.css" rel="stylesheet" type="text/css" >
+  
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');		
+	</style>
+
+
+</head>
+
+<body>
+	<div id="overlay">
+		<div id=errorBox onclick="errorGoToMain()">
+			<h2 id=errorTitle>Coś poszło nie tak!</h2>
+			<div id=errorMsg>Aby kontynuować kliknij...</div>
+
+		</div>
+	</div>
+
+	<nav>
+	 <div id=leftnav>
+		<div id=dodajAnkiete onclick="dodajAnkiete()">Dodaj Ankietę</div>
+		<div id=mojeAnkiety >Moje ankiety</div> <!--- Intially hidden -->
+	 </div>
+
+	 <div id="loginbox" >
+		<div id=logowanie onclick="zaloguj()" > Zaloguj</div>
+		
+		<div id=zalogowany >
+			<div id=ikona></div>
+			<div id=uzytkownik>
+				<div class="dropdown show">
+					  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<%= user %>
+					  </a>
+
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<a id="logout" class="dropdown-item" href="#">Wyloguj</a>
+					  </div>
+				</div>
+			
+			
+			</div>
+		</div>
+
+
+	 </div>
+	 
+	</nav>
+	<div class=spacer></div>
+	<div id=main>
+        <div id=forma>
+			
+			
+
+
+
+
+
+
+           
+
+		</div>
+		<div id="SendSurveyDiv" >
+        	<button id="SendSurvey" type="button" class="btn btn-light btn-lg btn-block" name=SendSurvey  onclick="readAnswers()" id="SendSurvey" > Wyślij ankietę !</button>
+		</div>
+	
+
+	
+	</div>
+	<div class=spacer></div>
+	<footer>
+		© 2020
+	</footer>
+
+ 
+ 
+</body>
+
+</html>
+
+<script>
+	$(document).ready(function( ){
+		var session = document.cookie;
+		console.log(session);
+		if(session){
+			document.getElementById("logowanie").style.display = "none";
+		}else{
+			document.getElementById("zalogowany").style.display = "none";
+		}
+
+
+
+
+
+		$('#SendSurvey').click(function() {
+			let id = window.location.pathname;
+			id = id.split('/')[2];
+			console.log(jsonAnswers);
+			let pass = prompt("Wprowadz swoje hasło");
+			if(pass != null){
+				$.post("/sendSurvey/"+id, { answers: jsonAnswers, password : pass} , function(data, status){
+				if(data.status == "ok"){
+					//console.log("okkkkkkkkkkkkkkkk");
+					alert("Ankieta została wysłana!");
+					document.location.replace('/home');
+				}
+				if(data.status == "created"){
+					//console.log("okkkkkkkkkkkkkkkk");
+					alert("Ankieta została dodana!");
+					document.location.replace('/home');
+				}
+			});
+			}
+			
+		});
+
+	});
+		////////////////////////////////////////////////////
+		//doQuestionary(obj)
+		//////////////////////////////////////////////////
+
+		<% let iloscPytan = Object.keys(data).length;
+		let prefix = "EntireQuestionNo"; %>
+
+		document.getElementById("forma").innerHTML += `<legend id="title" contenteditable="false" class="col-md-8" style="text-align: center;">`+"<%= data['title'] %>" +`</legend>` ;
+		
+		<% for(let i = 1; i<iloscPytan ; i++){
+			// var questionName = obj[prefix+i]["name"];
+			let question = data[prefix+i];
+			if(question['type']=="r"){
+				
+				radio(question,i);
+			}        
+			else
+			if(question['type']=="c"){
+				
+				checkbox(question,i);
+			}else
+			if(question['type']=="t"){
+				textbox(question,i);
+			}
+
+		} %>
+
+
+		<% function radio(pytango, numereg){
+
+    	// console.log(pytango);
+			var tajtle  = pytango['name'];
+			var opszyns = pytango['options'];
+			var inputy = Object.keys(opszyns).length; %>
+
+			document.getElementById("forma").innerHTML +=`
+			<div xd="Radio" id="EntireQuestionNo`+ "<%= numereg %>" +`">
+
+				<label class="questionLabel"  id="questionLabel`+ "<%= numereg %>"+`" contenteditable="false" >` + "<%=tajtle %>" + `  </label>            
+
+				<div id="divOfQuestion`+"<%=numereg%>"+`">`;
+						
+			<% for(let i = 0 ; i< inputy; i++){ %>
+
+				document.getElementById("forma").innerHTML +=`
+						<div class="custom-control custom-radio" id="Q`+"<%= numereg %>"+`o`+"<%= i %>"+`">
+
+						<input type="radio" class="custom-control-input" id="radioGroupOption`+  "<%= i %>" +`" name="groupOfRadiosFromQuestion`+"<%= numereg %>"+`">
+						<label class="custom-control-label" for="radioGroupOption`+ "<%= i %>"  +`" contenteditable="false">`+"<%= opszyns[i] %>"+`</label> 
+						</div>`;
+			<% } %>
+			
+				document.getElementById("forma").innerHTML +=`
+						</div>
+						<br>
+					</div>
+					`;
+		<% } %>
+
+		<% function checkbox(pytango, numereg){
+			// console.log(pytango);
+			var tajtle  = pytango['name'];
+			var opszyns = pytango['options'];
+			var inputy = Object.keys(opszyns).length; %>
+
+			document.getElementById("forma").innerHTML +=`
+			<div xd="Check" id="EntireQuestionNo`+"<%= numereg %>"+`">
+			
+				<label class="questionLabel" id="questionLabel`+"<%= numereg %>" +`" contenteditable="false" >`+"<%= tajtle %>"+`</label>
+
+					<div id="divOfQuestion`+"<%= numereg %>"+`">`;
+
+			<% for(var i = 0 ; i< inputy; i++){  %>
+				document.getElementById("forma").innerHTML +=`
+						<div class="custom-control custom-checkbox" id="Q`+"<%= numereg %>"+`o`+"<%= i %>"+`">
+						
+							<input type="checkbox" class="custom-control-input" id="checkboxOption`+"<%= i %>"+`">
+							<label class="custom-control-label" for="checkboxOption`+ "<%= i %>"+`" contenteditable="false">`+"<%= opszyns[i] %>"+`</label>
+						</div>`
+			<% } %>        
+			document.getElementById("forma").innerHTML +=`			
+					</div>		
+						
+					<br>
+			</div>        
+			`;
+
+
+		<% } %>
+
+
+		<% function textbox(pytango, numereg){
+			// console.log(pytango);
+			var tajtle  = pytango['name']; %>
+
+
+			document.getElementById("forma").innerHTML += `
+			<div xd="Text" id="EntireQuestionNo`+"<%= numereg %>"+`">
+
+			
+				<label class="questionLabel " id="questionLabel`+"<%= numereg %>" +`" contenteditable="false">`+ "<%= tajtle %>"+`</label>
+
+				<div id="divOfQuestion`+"<%= numereg %>"+`" class="form-group col-md-8">              
+						
+						<br>
+						<textarea  class="form-control" id="question`+"<%= numereg %>" +`" rows="1"></textarea>
+				</div><br>
+
+			</div>
+			`;
+
+		<% } %>
+
+
+
+		$('#dodajAnkiete').click(function(){
+			document.location.replace('/dodajankiete');
+
+		});
+		
+		
+		$('#mojeAnkiety').click(function(){
+			let usPassword = prompt("Wpisz hasło ,aby kontynuować");
+			// let crypt = new SimpleCrypto("<%= user.login%>");
+			if(usPassword != null){
+				// usPassword = crypt.encrypt(usPassword);
+				// $.get('/mojeankiety/'+usPassword ); 
+				document.location.replace('/mojeankiety/'+usPassword);
+				
+			}
+			
+			
+			
+		});
+
+		
+		$('#logout').click(function(){
+			document.cookie = "login=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+			document.location.replace('/');
+		});
+
+</script>

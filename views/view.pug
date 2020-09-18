@@ -1,0 +1,62 @@
+html
+    head
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700")
+        link(rel="stylesheet" href="/css/main.css")
+    body
+        .view.ankiety
+            header.app-header
+                
+                nav.app-nav
+                    ul.app-nav__list
+                        li.app-nav__list-item
+                            a.app-nav__link.app-nav__link--is-active(href="#") home
+                        li.app-nav__list-item
+                            a.app-nav__link(href="/view") ankiety
+                        li.app-nav__list-item
+                            a.app-nav__link(href="#")  kontakt
+            .wrapper
+                section.slogan
+                    h1.slogan__header
+                        | Sprawdź swoją ankietę
+                    p.slogan__text
+                        | Jest anonimowa, pomoże w ocenie.
+                    .actions
+                        button.btn.btn--primary(@click="formLightbox = true") Sprawdź
+                        
+                
+            .lightbox(v-show="formLightbox == true" style="display: none;")
+                .lightbox__content
+                    h2.lightbox__header Wypełnij ankietę
+                    form.lightbox__form(action="/applications2" method="POST")
+                        .lightbox__form-control
+                            label.lightbox__label twoje haslo
+                            input.lightbox__input(placeholder="podałeś je przy wypełnianiu" type="text" name="appHaslo")
+                        .lightbox__form-control
+                            label.lightbox__label Twoj tajny hash
+                            input.lightbox__input(placeholder="duzo cyferek" type="text" name="secretHash")
+                        .lightbox__form-control
+                            label.lightbox__label twoje imie
+                            input.lightbox__input(placeholder="imie" type="text" name="usName")
+                        .lightbox__form-control
+                            label.lightbox__label twoje nazwisko
+                            input.lightbox__input(placeholder="nazwisko" type="text" name="usSurname")
+                        .lightbox__form-control
+                            label.lightbox__label twoj mail
+                            input.lightbox__input(placeholder="mail" type="text" name="usMail")
+                        .lightbox__actions
+                            button.btn.btn--primary Sprawdź
+            if (formMessage.length)
+                .lightbox(v-show="showFeedback")
+                    .lightbox__content
+                        h2.lightbox__header #{ formMessage }
+                        .lightbox__actions.lightbox__actions--centered
+                            button.btn.btn--primary(@click="closeFeedbackLightbox") Close
+
+
+                            
+
+
+
+
+        script(src="https://cdn.jsdelivr.net/npm/vue" type="text/javascript")
+        script(src="/js/app.js")

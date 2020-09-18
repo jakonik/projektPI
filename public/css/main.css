@@ -8,7 +8,7 @@ body { margin: 0; background: #222; color: #fafafa; font-family: 'Montserrat', s
 /* navigation */
 .app-nav { float: right; }
 .app-nav__list { list-style: none; display: flex; }
-.app-nav__list-item { font-size: 10px; text-transform: uppercase; padding: 0 25px; }
+.app-nav__list-item { font-size: 10px; padding: 0 25px; }
 
 .app-nav__link { color: #fafafa; opacity: .43; text-decoration: none; display: block; padding: 5px 5px; }
 .app-nav__link:focus { transition: .2s all ease-in-out; transform: scale(1.1); outline: none; box-shadow: none; }
@@ -20,7 +20,7 @@ body { margin: 0; background: #222; color: #fafafa; font-family: 'Montserrat', s
 .slogan__text { font-size: 16px; color: #d0c4bc; font-weight: 100; line-height: 24px; max-width: 500px; }
 
 .actions { margin-top: 50px; }
-.btn { transition: .2s all ease-in-out; text-transform: uppercase; border-radius: 35px; line-height: 50px; border: none; padding: 0 30px; background: none; cursor: pointer; }
+.btn { transition: .2s all ease-in-out; border-radius: 35px; line-height: 50px; border: none; padding: 0 30px; background: none; cursor: pointer; }
 .btn:focus { transform: scale(1.1); outline: none; box-shadow: none; }
 .btn--shadow { border: 1px solid #d0c4bc; color: #d0c4bc; }
 .btn--primary { color: #fff; background: #c19656; margin-right: 20px; }
@@ -31,12 +31,12 @@ body { margin: 0; background: #222; color: #fafafa; font-family: 'Montserrat', s
 .lightbox { position: fixed; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center; }
 .lightbox:before { content: ''; display: block; position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0,0,0,.7); }
 .lightbox__content { min-width: 520px; position: relative; background: #fff; color: #222; padding: 15px; border-radius: 2px; }
-.lightbox__header { text-align: center; font-family: 'Bodoni 72', serif; font-weight: 100; letter-spacing: 4px; text-transform: uppercase; font-size: 36px; }
+.lightbox__header { text-align: center; font-family: 'Bodoni 72', serif; font-weight: 100; letter-spacing: 4px; font-size: 24px; }
 
 /* lightbox form */
 .lightbox__form-control { width: 100%; margin-bottom: 35px; }
-.lightbox__label { text-transform: uppercase; width: 100%; margin-bottom: 15px; display: block; }
-.lightbox__input { transition: .2s all ease-in-out; width: 100%; border: none; border-bottom: 1px solid #ddd; padding-bottom: 5px; font-size: 16px; font-weight: 500; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
+.lightbox__label {  width: 100%; margin-bottom: 15px; display: block; }
+.lightbox__input { transition: .2s all ease-in-out; width: 100%; border: none; border-bottom: 1px solid #ddd; padding-bottom: 5px; font-size: 16px; font-weight: 500;  font-family: 'Montserrat', sans-serif; }
 .lightbox__input:focus { outline: none; box-shadow: none; }
 .lightbox__actions { text-align: right; }
 .lightbox__actions--centered { text-align: center; }

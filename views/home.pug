@@ -11,7 +11,7 @@ html
                         li.app-nav__list-item
                             a.app-nav__link.app-nav__link--is-active(href="#") home
                         li.app-nav__list-item
-                            a.app-nav__link(href="#") ankiety
+                            a.app-nav__link(href="/view") ankiety
                         li.app-nav__list-item
                             a.app-nav__link(href="#")  kontakt
             .wrapper
@@ -22,6 +22,7 @@ html
                         | Jest anonimowa, pomoże w ocenie.
                     .actions
                         button.btn.btn--primary(@click="formLightbox = true") Wypełnij ankietę
+                   
                         
                 
             .lightbox(v-show="formLightbox == true" style="display: none;")
@@ -29,14 +30,26 @@ html
                     h2.lightbox__header Wypełnij ankietę
                     form.lightbox__form(action="/applications" method="POST")
                         .lightbox__form-control
-                            label.lightbox__label Nazwa przedmiotu?
-                            input.lightbox__input(placeholder="Matematyka" type="text" name="name")
+                            label.lightbox__label twoje haslo
+                            input.lightbox__input(placeholder="zapamietaj je" type="text" name="appHaslo")
+                        .lightbox__form-control
+                            label.lightbox__label twoje imie
+                            input.lightbox__input(placeholder="imie" type="text" name="usName")
+                        .lightbox__form-control
+                            label.lightbox__label twoje nazwisko
+                            input.lightbox__input(placeholder="nazwisko" type="text" name="usSurname")
+                        .lightbox__form-control
+                            label.lightbox__label twoj mail
+                            input.lightbox__input(placeholder="mail" type="text" name="usMail")
+                        .lightbox__form-control
+                            label.lightbox__label Twoja opinia słowna?
+                            input.lightbox__input(placeholder="Było spoko" type="text" name="appName")
                         .lightbox__form-control
                             label.lightbox__label Jaka jest twoja ocena?
-                            input.lightbox__input(placeholder="od 1 do 10" type="text" name="mark")
+                            input.lightbox__input(placeholder="od 1 do 10" type="text" name="appMark")
                         .lightbox__form-control
-                            label.lightbox__label Zostaw uwagi
-                            textarea.lightbox__input(placeholder="Wszystko co Ci leży na sercu" rows="3" name="message")
+                            label.lightbox__label tutaj mozesz sie rozpisać
+                            textarea.lightbox__input(placeholder="example@xd.com" type="text" name="appMessage")
                         .lightbox__actions
                             button.btn.btn--primary Wyślij
             if (formMessage.length)
@@ -45,6 +58,12 @@ html
                         h2.lightbox__header #{ formMessage }
                         .lightbox__actions.lightbox__actions--centered
                             button.btn.btn--primary(@click="closeFeedbackLightbox") Close
+
+
+                            
+
+
+
 
         script(src="https://cdn.jsdelivr.net/npm/vue" type="text/javascript")
         script(src="/js/app.js")

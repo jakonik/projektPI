@@ -1,0 +1,33 @@
+
+<html>
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700"/>
+<link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body>
+<div class="home ankiety">
+<header class="app-header">
+<nav class="app-nav">
+<ul class="app-nav__list">
+<li class="app-nav__list-item">
+<a class="app-nav__link app-nav__link--is-active" href="#">home</a>
+</li>
+<li class="app-nav__list-item">
+<a class="app-nav__link" href="/view">ankiety</a>
+</li><li class="app-nav__list-item"><a class="app-nav__link" href="#"> kontakt</a></li></ul></nav></header>
+<div class="wrapper"><section class="slogan"><h1 class="slogan__header">Be a hero. Wypełnij ankietę.</h1>
+<p class="slogan__text">Jest anonimowa, pomoże w ocenie.</p>
+<div class="actions"><button class="btn btn--primary" @click="formLightbox = true">Wypełnij ankietę</button></div>
+<div class="actions"><!--   button.btn.btn--primary(@click="/ehh") Sprawdź ankietę--></div></section></div>
+<div class="lightbox" v-show="formLightbox == true" style="display: none;"><div class="lightbox__content">
+<h2 class="lightbox__header">Wypełnij ankietę</h2><form class="lightbox__form" action="/applications" method="POST">
+<div class="lightbox__form-control"><label class="lightbox__label">twoje haslo</label>
+<input class="lightbox__input" placeholder="zapamietaj je" type="text" name="haslo"/></div>
+<div class="lightbox__form-control"><label class="lightbox__label">Twoja opinia słowna?</label>
+<input class="lightbox__input" placeholder="Było spoko" type="text" name="name"/></div><div class="lightbox__form-control">
+<label class="lightbox__label">Jaka jest twoja ocena?</label>
+<input class="lightbox__input" placeholder="od 1 do 10" type="text" name="mark"/></div><div class="lightbox__form-control">
+<label class="lightbox__label">twoj mail</label><textarea class="lightbox__input" placeholder="example@xd.com" type="text" name="message">
+</textarea></div><div class="lightbox__actions"><button class="btn btn--primary">Wyślij</button></div></form></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/vue" type="text/javascript"></script><script src="/js/app.js"></script></body>
+</html>
