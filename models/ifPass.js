@@ -15,9 +15,9 @@ module.exports.create = async (application) => {
   const userModel = new User();
 
   console.log('tu jestem')
-  return await userModel.query('where', 'name', '=', application.usName, 'and', 'surname', '=', application.surname, 'and', 'mail', '=', application.usMail)
+  return await userModel.where({ name: application.usName, surname: application.usSurname, mail: application.usMail })
     .fetch().then(function (model) {
-      console.log('user istnieje');
+      console.log(model);
       return 'wypełnił/wypełniła ankietę'
     }).catch((err) => {
       console.log('jestem w catchu sprawdzania usera')

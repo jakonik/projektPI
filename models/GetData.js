@@ -35,7 +35,7 @@ module.exports.create = async (application) => {
   const userModel = new User();
   let ifUserExist = -1;
   console.log('tu jestem')
-  await userModel.query('where', 'name', '=', application.usName, 'and', 'surname', '=', application.surname, 'and', 'mail', '=', application.usMail)
+  await userModel.where({ name: application.usName, surname: application.surname, mail: application.usMail })
     .fetch().then(function (model) {
       ifUserExist = 1;
       console.log('user istnieje');
@@ -53,7 +53,7 @@ module.exports.create = async (application) => {
 
 
 
-    let appData = await appModel.query('where', 'haslo', '=', passHash).fetch();
+    let appData = await appModel.where({ haslo: passHash }).fetch();
     appData = appData.toJSON();
     console.log('ponizej mamy jsona');
     console.log(appData);
