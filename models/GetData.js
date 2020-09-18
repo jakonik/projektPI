@@ -61,45 +61,12 @@ module.exports.create = async (application) => {
     const secretHash = (sha512(toSecretHash, application.appHaslo));
     if (secretHash == application.secretHash) resolve('wszystko ok');
     else reject('ktoś kombinował w bazie danych');
-    //.then(function (model) {
-    // console.log(model)
-    //tutaj porownujemy secret hashe
-    //   reject('juz wypelniles ankiete');
   }).catch((err) => {
     console.log('cośinnegoxd');
     return 'ktoś kombinował w bazie danych';
-    // new Promise(async (innerResolve, innerReject) => {
 
-    //   await new Application({
-
-    //     haslo: passHash,
-    //     name: application.appName,
-    //     mark: application.appMark,
-    //     message: application.appMessage
-    //   }).save();
-
-    //   await innerResolve(new User({
-
-    //     name: application.usName,
-    //     surname: application.usSurname,
-    //     mail: application.usMail,
-    //     czy_ankieta_wyp: 1
-    //   }).save());
-
-    //wyświetlasz hash z toHash + hash
-    //     toSecretHash = toHash + passHash.passwordHash; 
-    //    const secretHash = sha512(toSecretHash, salt);
-    //     //console.log(secretHash);
-    //    return secretHash;
-    //  toSecretHash = toHash + passHash;
-    // resolve(sha512(toSecretHash, application.appHaslo));
   })
-  // .then((error) => {
-  //   //toSecretHash = toHash + passHash;
-  //   //resolve(sha512(toSecretHash, application.appHaslo));
-  //   // return error;
-  //   // console.log(error);
-  // }).catch(console.log);
+
 
 };
 
