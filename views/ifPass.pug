@@ -17,7 +17,7 @@ html
             .wrapper
                 section.slogan
                     h1.slogan__header
-                        | Sprawdź swoją ankietę
+                        | Sprawdź użytkownika
                     p.slogan__text
                         | Jest anonimowa, pomoże w ocenie.
                     .actions
@@ -26,7 +26,7 @@ html
                 
             .lightbox(v-show="formLightbox == true" style="display: none;")
                 .lightbox__content
-                    h2.lightbox__header Sprawdź ankietę
+                    h2.lightbox__header Sprawdź użytkownika
                     form.lightbox__form(action="/applications3" method="POST")
                         .lightbox__form-control
                             label.lightbox__label imie
