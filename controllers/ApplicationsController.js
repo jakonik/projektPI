@@ -1,20 +1,6 @@
-// Store new application
 const Application = require('../models/application');
 const GetData = require('../models/GetData');
 const IfPass = require('../models/ifPass');
-//const Application1 = require('../models/application1');
-
-//const bookshelf = require('../config/bookshelf');
-//const User = bookshelf.Model.extend({
-///    tableName: 'users'
-//});
-
-
-
-
-
-
-
 
 
 exports.store = (req, res) => {

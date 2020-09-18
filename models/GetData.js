@@ -20,7 +20,6 @@ const sha512 = function (password, salt) {
   let hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
   hash.update(password);
   let value = hash.digest('hex');
-  //value = value.toString();
   return value
 };
 
@@ -67,7 +66,7 @@ module.exports.create = async (application) => {
     //tutaj porownujemy secret hashe
     //   reject('juz wypelniles ankiete');
   }).catch((err) => {
-    console.log('dupa');
+    console.log('cośinnegoxd');
     return 'ktoś kombinował w bazie danych';
     // new Promise(async (innerResolve, innerReject) => {
 
@@ -106,159 +105,5 @@ module.exports.create = async (application) => {
 
 
 
-
-
-
-
-
-
-//'appHaslo': req.body.appHaslo,
-//        'usName': req.body.usName,
-//        'appName': req.body.appName,
-//        'appMark': req.body.usMark,
-//        'appMessage': jest hashem
-//        'usSurname': req.body.usSurname,
-//        'usMail': req.body.usMail
-
-
-
-/*knex('users').insert({
-
-    haslo: hashHasla.passwordHash,
-    name: application.appName,
-    mark: application.appMark,
-    message: application.appMessage
-});
-knex('applications').insert({
-
-    haslo: hashHasla.passwordHash,
-    name: application.appName,
-    mark: application.appMark,
-    message: application.appMessage
-});
-*/
-/*import sha256 from 'crypto-js/sha256';*/
-
-//const knex = require('knex')(require('./knexfile'));
-//const Application = ('./model/applications.');
-//let Application = bookshelf.Model.extend({
- //   tableName: 'applications'
-// });
-
-//application.create().then(res => {}).catch(err => {
-
-//})
-
-// const User = bookshelf.Model.extend({
- //   tableName: 'users'
-// });
-
-//const { model } = require('../config/bookshelf');
-//const app = require('../app');
-//const applications = require('./applications');
-
-
-
-
-
-
-
-
-// const express = require('express');
-// const bookshelf = require('../config/bookshelf');
-// const Application = bookshelf.Model.extend({
-//   tableName: 'applications'
-// });
-
-
-// module.exports.create(req, res) => {
-//   let users = await new Application().fetchAll();
-//   res.json(users);
-
-
-
-
-
-
-
-
-
-
-
-// //const { application } = require('express');
-// //const { where } = require('sequelize/types');
-// /*import sha256 from 'crypto-js/sha256';*/
-// //const bookshelf = require('../config/bookshelf');
-// //let Application = bookshelf.Model({
-// //    tableName: 'applications'});
-
-// //const crypto = require('crypto');
-
-// //const sha512 = function(password, salt){
-//  //   let hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
-//  //   hash.update(password);
-//  //   let value = hash.digest('hex');
-//  //   //value = value.toString();
-//  //   return {
-//  //       salt:salt,
-//  //       passwordHash:value
-//  //   };
-// //};
-
-// //select * from `books` where `ISBN-13` = '9780440180296'
-// //new Book({'ISBN-13': '9780440180296'})
-//  // .fetch()
-// //  .then(function(model) {
-// //    // outputs 'Slaughterhouse Five'
-// //    console.log(model.get('title'));
-// //  });
-
-// //module.exports.create = (application) => {
-
-//  // return Application(where{id: 21})
-
-
-// //};
-
-
-
-// /*import sha256 from 'crypto-js/sha256';*/
-// //const bookshelf = require('../config/bookshelf');
-// //const Application = bookshelf.Model.extend({
-// //  tableName: 'applications'
-// //});
-// //const crypto = require('crypto');
-
-// //const sha512 = function(password, salt){
-// //    let hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
-// //    hash.update(password);
-// //    let value = hash.digest('hex');
-//     //value = value.toString();
-// //    return {
-// //        salt:salt,
-// //        passwordHash:value
-//  //   };
-// //};
-
-
-
-// //module.exports.create = (application) => {
-// //    const salt = application.haslo;
-
-// //    const hashHasla = sha512(application.haslo, salt);
-
-
-
-// //    const hashMessage = application.message;
-// //    return new Application({
-//  //      
-//   //      haslo: hashHasla.passwordHash,
-//    //     name: application.name,
-//    //     mark: application.mark,
-//   //      message: application.message
-//  //   }).save();
-
-
-// //};
 
 

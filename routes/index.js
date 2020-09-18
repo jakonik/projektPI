@@ -1,13 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
-//const bookshelf = require('../config/bookshelf');
-//const Application = bookshelf.Model.extend({
-//  tableName: 'applications'
-//});
-
-
 const PagesController = require('../controllers/PagesController');
 const ApplicationsController = require('../controllers/ApplicationsController');
 
