@@ -3,7 +3,7 @@ const GetData = require('../models/GetData');
 const IfPass = require('../models/ifPass');
 
 
-exports.store = (req, res) => {
+exports.pass = (req, res) => {
     Application.create({
         'appHaslo': req.body.appHaslo,
         'usName': req.body.usName,
@@ -27,8 +27,8 @@ exports.store = (req, res) => {
 
 
 };
-exports.store1 = (req, res) => {
-    GetData.create({
+exports.verification = (req, res) => {
+    GetData.verification({
         'appHaslo': req.body.appHaslo,
         'secretHash': req.body.secretHash,
         'usName': req.body.usName,
@@ -41,17 +41,12 @@ exports.store1 = (req, res) => {
         req.flash('form', xd);
         res.redirect('/');
 
-    })//.catch(err => {
-    //  console.log('ddddddddd')
-    // req.flash('form', err);
-    //res.redirect('/');
-    // }
-    //)
+    })
 
 
 };
-exports.store2 = (req, res) => {
-    IfPass.create({
+exports.ifPass = (req, res) => {
+    IfPass.ifPass({
         'usName': req.body.usName,
         'usSurname': req.body.usSurname,
         'usMail': req.body.usMail
@@ -62,12 +57,7 @@ exports.store2 = (req, res) => {
         req.flash('form', xd);
         res.redirect('/');
 
-    })//.catch(err => {
-    //  console.log('ddddddddd')
-    // req.flash('form', err);
-    //res.redirect('/');
-    // }
-    //)
+    })
 
 
 };

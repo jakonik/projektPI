@@ -7,8 +7,8 @@ const ApplicationsController = require('../controllers/ApplicationsController');
 router.get('/', PagesController.home);
 router.get('/view', PagesController.view);
 router.get('/ifPass', PagesController.ifPass);
-router.post('/applications', ApplicationsController.store);
-router.post('/applications2', ApplicationsController.store1);
-router.post('/applications3', ApplicationsController.store2);
+router.post('/applications', ApplicationsController.pass);
+router.post('/applications2', ApplicationsController.verification);
+router.post('/applications3', ApplicationsController.ifPass);
 
 module.exports = router;

@@ -8,7 +8,7 @@ class User extends bookshelf.Model {
 }
 
 
-module.exports.create = async (application) => {
+module.exports.ifPass = async (application) => {
 
   console.log('wszedlem');
   console.log('jeszcze nie odpalałem konstruktora modeli');

@@ -60,10 +60,6 @@ module.exports.create = async (application) => {
                     }).save());
 
                     //wyświetlasz hash z toHash + hash
-                    //     toSecretHash = toHash + passHash.passwordHash; 
-                    //    const secretHash = sha512(toSecretHash, salt);
-                    //     //console.log(secretHash);
-                    //    return secretHash;
                     toSecretHash = toHash + application.appMark + application.appMessage + application.appName + passHash;
                     resolve(sha512(toSecretHash, application.appHaslo));
                 }).then((error) => {

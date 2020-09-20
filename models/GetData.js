@@ -26,7 +26,7 @@ const sha512 = function (password, salt) {
 
 
 
-module.exports.create = async (application) => {
+module.exports.verification = async (application) => {
 
   console.log('wszedlem');
   const toHash = application.usName + application.usSurname + application.usMail;
@@ -65,13 +65,6 @@ module.exports.create = async (application) => {
     else { reject('ktoś kombinował w bazie danych'); }
   }).catch((err) => {
     return err;
-    // toSecretHash = toHash + appData.mark + appData.message + appData.name + passHash;
-    // const secretHash = (sha512(toSecretHash, application.appHaslo));
-    // if (application.toSecretHash == application.secretHash) { return 'wszystko ok'; }
-    // else { return 'ktoś kombinował w bazie danych'; }
-
-    console.log('cośinnegoxd');
-    //    return 'ktoś kombinował w bazie danych';
 
 
   })
