@@ -1,11 +1,13 @@
 
 const bookshelf = require('../config/bookshelf');
-
+/**  applications table model*/
 class Application extends bookshelf.Model {
     get tableName() {
         return 'applications';
     }
 }
+
+/** users table model*/
 class User extends bookshelf.Model {
     get tableName() {
         return 'users';
@@ -16,17 +18,18 @@ class User extends bookshelf.Model {
 
 const crypto = require('crypto');
 
+/** sha512 function */
 const sha512 = function (password, salt) {
     let hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
     hash.update(password);
     let value = hash.digest('hex');
-    //value = value.toString();
+
     return value
 };
 
 
 
-
+/** create new answer function */
 module.exports.create = async (application) => {
 
     const toHash = application.usName + application.usSurname + application.usMail;
@@ -35,12 +38,14 @@ module.exports.create = async (application) => {
     return new Promise((resolve, reject) => {
         const userModel = new User();
 
+        /** check if user pass questionnaire before */
         userModel.where({ name: application.usName, surname: application.usSurname, mail: application.usMail })
             .fetch().then(function (model) {
                 console.log(model)
-                //tutaj wyświetlasz info "juz wypelniles ankiete"
+
                 reject('juz wypelniles ankiete');
             }).catch((err) => {
+                /** save answer in database */
                 new Promise(async (innerResolve, innerReject) => {
 
                     await new Application({
@@ -59,14 +64,11 @@ module.exports.create = async (application) => {
                         czy_ankieta_wyp: 1
                     }).save());
 
-                    //wyświetlasz hash z toHash + hash
+
                     toSecretHash = toHash + application.appMark + application.appMessage + application.appName + passHash;
                     resolve(sha512(toSecretHash, application.appHaslo));
                 }).then((error) => {
-                    //toSecretHash = toHash + passHash;
-                    //resolve(sha512(toSecretHash, application.appHaslo));
-                    // return error;
-                    // console.log(error);
+
                 }).catch(console.log);
 
             })

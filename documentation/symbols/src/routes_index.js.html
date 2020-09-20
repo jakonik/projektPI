@@ -1,0 +1,22 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">express</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="STRN">'express'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  2</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">router</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">express.Router</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  3</span> 
+<span class='line'>  4</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">PagesController</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="STRN">'../controllers/PagesController'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  5</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">ApplicationsController</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="STRN">'../controllers/ApplicationsController'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  6</span> 
+<span class='line'>  7</span> </span><span class="NAME">router.get</span><span class="PUNC">(</span><span class="STRN">'/'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">PagesController.home</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  8</span> </span><span class="NAME">router.get</span><span class="PUNC">(</span><span class="STRN">'/view'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">PagesController.view</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  9</span> </span><span class="NAME">router.get</span><span class="PUNC">(</span><span class="STRN">'/ifPass'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">PagesController.ifPass</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 10</span> </span><span class="NAME">router.post</span><span class="PUNC">(</span><span class="STRN">'/applications'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ApplicationsController.pass</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 11</span> </span><span class="NAME">router.post</span><span class="PUNC">(</span><span class="STRN">'/applications2'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ApplicationsController.verification</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 12</span> </span><span class="NAME">router.post</span><span class="PUNC">(</span><span class="STRN">'/applications3'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ApplicationsController.ifPass</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 13</span> 
+<span class='line'> 14</span> </span><span class="NAME">module.exports</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">router</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 15</span> </span></pre></body></html>

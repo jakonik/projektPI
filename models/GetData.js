@@ -1,11 +1,13 @@
 
 const bookshelf = require('../config/bookshelf');
-
+/**  applications table model*/
 class Application extends bookshelf.Model {
   get tableName() {
     return 'applications';
   }
 }
+
+/** users table model*/
 class User extends bookshelf.Model {
   get tableName() {
     return 'users';
@@ -16,6 +18,7 @@ class User extends bookshelf.Model {
 
 const crypto = require('crypto');
 
+/** sha512 function */
 const sha512 = function (password, salt) {
   let hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
   hash.update(password);
@@ -25,7 +28,7 @@ const sha512 = function (password, salt) {
 
 
 
-
+/** verification function */
 module.exports.verification = async (application) => {
 
   console.log('wszedlem');
@@ -35,6 +38,8 @@ module.exports.verification = async (application) => {
   const userModel = new User();
   let ifUserExist = -1;
   console.log('tu jestem')
+
+  /** chceck if user exist */
   await userModel.where({ name: application.usName, surname: application.usSurname, mail: application.usMail })
     .fetch().then(function (model) {
       ifUserExist = 1;
@@ -45,7 +50,7 @@ module.exports.verification = async (application) => {
     });
   console.log("widać mnie")
 
-
+  /** check if answer was modified */
   return new Promise(async (resolve, reject) => {
     if (ifUserExist == 0) {
       reject('ktos majstrowal przy twojej ankiecie');
@@ -54,7 +59,7 @@ module.exports.verification = async (application) => {
     const appModel = new Application();
 
 
-
+    /** database question to get data to generating hash */
     let appData = await appModel.where({ haslo: passHash }).fetch().catch((err) => { reject("ktoś coś nabroił") });
     appData = appData.toJSON();
     console.log('ponizej mamy jsona');
