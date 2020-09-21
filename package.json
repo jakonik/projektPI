@@ -27,6 +27,7 @@
     "sha256": "^0.2.0"
   },
   "devDependencies": {
+    "apidoc": "^0.25.0",
     "jsdoc": "^3.6.6"
   }
 }

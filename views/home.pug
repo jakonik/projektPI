@@ -36,25 +36,25 @@ html(lang="pl")
                     form.lightbox__form(action="/applications" method="POST")
                         .lightbox__form-control
                             label.lightbox__label twoje haslo
-                            input.lightbox__input(placeholder="zapamietaj je" type="text" name="appHaslo")
+                            input.lightbox__input(placeholder="zapamietaj je"  name="appHaslo")
                         .lightbox__form-control
                             label.lightbox__label twoje imie
-                            input.lightbox__input(placeholder="imie" type="text" name="usName")
+                            input.lightbox__input(placeholder="imie"  name="usName")
                         .lightbox__form-control
                             label.lightbox__label twoje nazwisko
-                            input.lightbox__input(placeholder="nazwisko" type="text" name="usSurname")
+                            input.lightbox__input(placeholder="nazwisko"  name="usSurname")
                         .lightbox__form-control
                             label.lightbox__label twoj mail
-                            input.lightbox__input(placeholder="mail" type="text" name="usMail")
+                            input.lightbox__input(placeholder="mail"  name="usMail")
                         .lightbox__form-control
                             label.lightbox__label Twoja opinia słowna?
-                            input.lightbox__input(placeholder="Było spoko" type="text" name="appName")
+                            input.lightbox__input(placeholder="Było spoko"  name="appName")
                         .lightbox__form-control
                             label.lightbox__label Jaka jest twoja ocena?
-                            input.lightbox__input(placeholder="od 1 do 10" type="text" name="appMark")
+                            input.lightbox__input(placeholder="od 1 do 10" name="appMark")
                         .lightbox__form-control
                             label.lightbox__label tutaj mozesz sie rozpisać
-                            textarea.lightbox__input(placeholder="example@xd.com" type="text" name="appMessage")
+                            textarea.lightbox__input(placeholder="example@xd.com" name="appMessage")
                         .lightbox__actions
                             button.btn.btn--primary Wyślij
             if (formMessage.length)
@@ -70,5 +70,5 @@ html(lang="pl")
 
 
 
-        script(src="https://cdn.jsdelivr.net/npm/vue" type="text/javascript")
+        script(src="https://cdn.jsdelivr.net/npm/vue" )
         script(src="/js/app.js")

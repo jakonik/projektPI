@@ -35,13 +35,13 @@ html(lang="pl")
                     form.lightbox__form(action="/applications3" method="POST")
                         .lightbox__form-control
                             label.lightbox__label imie
-                            input.lightbox__input(placeholder="imie" type="text" name="usName")
+                            input.lightbox__input(placeholder="imie" name="usName")
                         .lightbox__form-control
                             label.lightbox__label nazwisko
-                            input.lightbox__input(placeholder="nazwisko" type="text" name="usSurname")
+                            input.lightbox__input(placeholder="nazwisko" name="usSurname")
                         .lightbox__form-control
                             label.lightbox__label mail
-                            input.lightbox__input(placeholder="mail" type="text" name="usMail")
+                            input.lightbox__input(placeholder="mail" name="usMail")
                         .lightbox__actions
                             button.btn.btn--primary Sprawdź
             if (formMessage.length)
@@ -57,5 +57,5 @@ html(lang="pl")
 
 
 
-        script(src="https://cdn.jsdelivr.net/npm/vue" type="text/javascript")
+        script(src="https://cdn.jsdelivr.net/npm/vue")
         script(src="/js/app.js")

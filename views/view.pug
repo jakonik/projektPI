@@ -35,19 +35,19 @@ html(lang="pl")
                     form.lightbox__form(action="/applications2" method="POST")
                         .lightbox__form-control
                             label.lightbox__label twoje haslo
-                            input.lightbox__input(placeholder="podałeś je przy wypełnianiu" type="text" name="appHaslo")
+                            input.lightbox__input(placeholder="podałeś je przy wypełnianiu" name="appHaslo")
                         .lightbox__form-control
                             label.lightbox__label Twoj tajny hash
-                            input.lightbox__input(placeholder="duzo cyferek" type="text" name="secretHash")
+                            input.lightbox__input(placeholder="duzo cyferek" name="secretHash")
                         .lightbox__form-control
                             label.lightbox__label twoje imie
-                            input.lightbox__input(placeholder="imie" type="text" name="usName")
+                            input.lightbox__input(placeholder="imie" name="usName")
                         .lightbox__form-control
                             label.lightbox__label twoje nazwisko
-                            input.lightbox__input(placeholder="nazwisko" type="text" name="usSurname")
+                            input.lightbox__input(placeholder="nazwisko" name="usSurname")
                         .lightbox__form-control
                             label.lightbox__label twoj mail
-                            input.lightbox__input(placeholder="mail" type="text" name="usMail")
+                            input.lightbox__input(placeholder="mail" name="usMail")
                         .lightbox__actions
                             button.btn.btn--primary Sprawdź
             if (formMessage.length)
@@ -63,5 +63,5 @@ html(lang="pl")
 
 
 
-        script(src="https://cdn.jsdelivr.net/npm/vue" type="text/javascript")
+        script(src="https://cdn.jsdelivr.net/npm/vue")
         script(src="/js/app.js")
