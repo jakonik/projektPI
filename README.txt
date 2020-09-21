@@ -20,7 +20,7 @@ PUG
 
 Implementacja funkcji skrótu z biblioteki crypto.js
 
-Dokumentacja dostępna pod adresem:
+Dokumentacja dostępna pod adresem: https://jakonik.github.io/projektPI/
 
 Uzupełnienie dokumentacji:
 /config/knexfile.js - ustawienia bazy danych
