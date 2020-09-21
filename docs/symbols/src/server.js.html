@@ -1,0 +1,14 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">app</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="STRN">'./app'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  2</span> 
+<span class='line'>  3</span> </span><span class="NAME">app.set</span><span class="PUNC">(</span><span class="STRN">'port'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">process.env.PORT</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NUMB">8080</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  4</span> 
+<span class='line'>  5</span> </span><span class="KEYW">const</span><span class="WHIT"> </span><span class="NAME">server</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">app.listen</span><span class="PUNC">(</span><span class="NAME">app.get</span><span class="PUNC">(</span><span class="STRN">'port'</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="PUNC">></span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>  6</span> </span><span class="WHIT">    </span><span class="NAME">console.log</span><span class="PUNC">(</span><span class="TOKN">`</span><span class="NAME">Listening</span><span class="WHIT"> </span><span class="NAME">on</span><span class="WHIT"> </span><span class="NAME">$</span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">server.address</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">port</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="TOKN">`</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  7</span> </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span></pre></body></html>
