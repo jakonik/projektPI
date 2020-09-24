@@ -53,21 +53,21 @@ module.exports.verification = async (application) => {
   /** check if answer was modified */
   return new Promise(async (resolve, reject) => {
     if (ifUserExist == 0) {
-      reject('ktos majstrowal przy twojej ankiecie');
+      reject('W bazie nie istnieje rekord z twoimi danymi, sprawdź czy podałeś poprawne dane.');
       console.log('user nie istnieje')
     }
     const appModel = new Application();
 
 
     /** database question to get data to generating hash */
-    let appData = await appModel.where({ haslo: passHash }).fetch().catch((err) => { reject("ktoś coś nabroił") });
+    let appData = await appModel.where({ haslo: passHash }).fetch().catch((err) => { reject("Podałeś błędne dane lub ktoś zmodyfikował twoją ankietę.") });
     appData = appData.toJSON();
     console.log('ponizej mamy jsona');
     console.log(appData);
     toSecretHash = toHash + appData.mark + appData.message + appData.name + passHash;
     const secretHash = (sha512(toSecretHash, application.appHaslo));
-    if (application.secretHash == secretHash) { resolve('wszystko ok'); }
-    else { reject('ktoś kombinował w bazie danych'); }
+    if (application.secretHash == secretHash) { resolve('Twoja ankieta nie została zmodyfikowana'); }
+    else { reject('Podałeś błędne dane lub ktoś zmodyfikował twoją ankietę.'); }
   }).catch((err) => {
     return err;
 

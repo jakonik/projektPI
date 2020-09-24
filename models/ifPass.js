@@ -21,10 +21,10 @@ module.exports.ifPass = async (application) => {
   return await userModel.where({ name: application.usName, surname: application.usSurname, mail: application.usMail })
     .fetch().then(function (model) {
       console.log(model);
-      return 'wypełnił/wypełniła ankietę'
+      return 'Wypełnił/wypełniła ankietę'
     }).catch((err) => {
       console.log('jestem w catchu sprawdzania usera')
-      return 'nie wypełnił/wypełniła ankiety'
+      return 'Nie wypełnił/wypełniła ankiety'
     });
 
 
