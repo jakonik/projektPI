@@ -36,7 +36,7 @@ Uzupełnienie dokumentacji:<br>
 	parameters: applications (JSON object) {"appHaslo": string, "secretHash": string, "usName": string, "usSurname": string, "usMail": string}<br>
 	return: string (komunikat dla użytkownika)<br>
 <br>	
-/models/ifPass<br>
+/models/ifPass.js<br>
 -> ifPass - weryfikuje, czy użytkownik wypełnił ankietę<br>
 	parameters: applications (JSON object) {"usName": string, "usSurname": string, "usMail": string}<br>
 	return: string (komunikat dla użytkownika)<br>
