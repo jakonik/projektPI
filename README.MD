@@ -22,21 +22,21 @@ Implementacja funkcji skrótu z biblioteki crypto.js
 
 Dokumentacja dostępna pod adresem: https://jakonik.github.io/projektPI/
 
-Uzupełnienie dokumentacji:
-/config/knexfile.js - ustawienia bazy danych
-/models/application.js
--> create - tworzy nowy wpis w bazie danych
-	parameters: applications (JSON object) {"appHaslo": string, "usName": string, "appName": string, "appMark": string, "appMessage": string, "usSurname": string, "usMail": string}
-	return:
-		-> w przypadku zapisania danych w bazie: JSON object {"name": string, "surname": string, "mail":string, "czy_ankieta_wyp: 1}
-		-> w przypadku niezapisania danych w bazie: string (komunikat dla użytkownika)
-	
-/models/GetData.js
--> verification - weryfikuje, czy ankieta nie została zmodyfikowana
-	parameters: applications (JSON object) {"appHaslo": string, "secretHash": string, "usName": string, "usSurname": string, "usMail": string}
-	return: string (komunikat dla użytkownika)
-	
-/models/ifPass
--> ifPass - weryfikuje, czy użytkownik wypełnił ankietę
-	parameters: applications (JSON object) {"usName": string, "usSurname": string, "usMail": string}
-	return: string (komunikat dla użytkownika)
+Uzupełnienie dokumentacji:<br>
+/config/knexfile.js - ustawienia bazy danych<br>
+/models/application.js<br>
+-> create - tworzy nowy wpis w bazie danych<br>
+	parameters: applications (JSON object) {"appHaslo": string, "usName": string, "appName": string, "appMark": string, "appMessage": string, "usSurname": string, "usMail": string}<br>
+	return:<br>
+		-> w przypadku zapisania danych w bazie: JSON object {"name": string, "surname": string, "mail":string, "czy_ankieta_wyp: 1}<br>
+		-> w przypadku niezapisania danych w bazie: string (komunikat dla użytkownika)<br>
+<br>	
+/models/GetData.js<br>
+-> verification - weryfikuje, czy ankieta nie została zmodyfikowana<br>
+	parameters: applications (JSON object) {"appHaslo": string, "secretHash": string, "usName": string, "usSurname": string, "usMail": string}<br>
+	return: string (komunikat dla użytkownika)<br>
+<br>	
+/models/ifPass<br>
+-> ifPass - weryfikuje, czy użytkownik wypełnił ankietę<br>
+	parameters: applications (JSON object) {"usName": string, "usSurname": string, "usMail": string}<br>
+	return: string (komunikat dla użytkownika)<br>
