@@ -1,27 +1,27 @@
-Projekt Inżynierski
-
-Projekt i implemetacja systemu webowego umożliwiającego głosowanie (lub ankietowanie) w sposób umożliwiający zachowanie anonimowości użytkowników.
-System zrealizowany w formie aplikacji webowej powinien uwzględniać możliwość odddania głosu lub wyrażenia opinii. Realizuje następujące funkcje:
-- informacje przechowywane w bazie danych,
-- reprezentacja nie umożliwia powiązania użytkownika z konkretnymi danymi,
-- reprezentacja umożliwia sprawdzenie czy dana osoba przekazała dane,
-- reprezentacja umożliwia sprawdzenie przez użytkownika czy jego dane są zapisane w bazzie.
-Implementacja uwzględniać responsywny interfejs.
-Do zapewnienia anonimowości wykorzystano techniki kryptograficzne (funkcje skrótu).
-
-Użyte technologie:
-Node
-Express
-Bookshelf
-mysql
-CSS3
-HTML5
-PUG
-
-Implementacja funkcji skrótu z biblioteki crypto.js
-
-Dokumentacja dostępna pod adresem: https://jakonik.github.io/projektPI/
-
+Projekt Inżynierski<br>
+<br>
+Projekt i implemetacja systemu webowego umożliwiającego głosowanie (lub ankietowanie) w sposób umożliwiający zachowanie anonimowości użytkowników.<br>
+System zrealizowany w formie aplikacji webowej powinien uwzględniać możliwość odddania głosu lub wyrażenia opinii. Realizuje następujące funkcje:<br>
+- informacje przechowywane w bazie danych,<br>
+- reprezentacja nie umożliwia powiązania użytkownika z konkretnymi danymi,<br>
+- reprezentacja umożliwia sprawdzenie czy dana osoba przekazała dane,<br>
+- reprezentacja umożliwia sprawdzenie przez użytkownika czy jego dane są zapisane w bazie.<br>
+Implementacja uwzględnia responsywny interfejs.<br>
+Do zapewnienia anonimowości wykorzystano techniki kryptograficzne (funkcje skrótu).<br>
+<br>
+Użyte technologie:<br>
+Node<br>
+Express<br>
+Bookshelf<br>
+mysql<br>
+CSS3<br>
+HTML5<br>
+PUG<br>
+<br>
+Implementacja funkcji skrótu z biblioteki crypto.js<br>
+<br>
+Dokumentacja dostępna pod adresem: https://jakonik.github.io/projektPI/<br>
+<br>
 Uzupełnienie dokumentacji:<br>
 /config/knexfile.js - ustawienia bazy danych<br>
 /models/application.js<br>
