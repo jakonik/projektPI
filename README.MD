@@ -27,9 +27,7 @@ Uzupełnienie dokumentacji:<br>
 /models/application.js<br>
 -> create - tworzy nowy wpis w bazie danych<br>
 	parameters: applications (JSON object) {"appHaslo": string, "usName": string, "appName": string, "appMark": string, "appMessage": string, "usSurname": string, "usMail": string}<br>
-	return:<br>
-		- w przypadku zapisania danych w bazie: JSON object {"name": string, "surname": string, "mail": string, "czy_ankieta_wyp": 1}<br>
-		- w przypadku niezapisania danych w bazie: string (komunikat dla użytkownika)<br>
+	return: string (komunikat dla użytkownika)<br>
 <br>	
 /models/GetData.js<br>
 -> verification - weryfikuje, czy ankieta nie została zmodyfikowana<br>
