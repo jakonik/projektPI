@@ -23,7 +23,6 @@ Implementacja funkcji skrótu z biblioteki crypto.js<br>
 Dokumentacja dostępna pod adresem: https://jakonik.github.io/projektPI/<br>
 <br>
 Uzupełnienie dokumentacji:<br>
-/config/knexfile.js - ustawienia bazy danych<br>
 /models/application.js<br>
 -> create - tworzy nowy wpis w bazie danych<br>
 	parameters: applications (JSON object) {"appHaslo": string, "usName": string, "appName": string, "appMark": string, "appMessage": string, "usSurname": string, "usMail": string}<br>
